@@ -14,9 +14,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="font-sans antialiased py-6 px-24">
-        <div class="min-h-screen dark:bg-neutral-800 bg-white">
-            <nav class="mb-24 space-x-6">
+    <body class="font-sans antialiased dark:text-white text-neutral-900">
+        <div class="min-h-screen dark:bg-neutral-800 bg-white py-6 px-40">
+            <nav class="mb-16 space-x-6">
                 <a href="{{route('home')}}" wire:navigate>Home</a>
                 <a href="{{route('category.create')}}" wire:navigate>New Category</a>
                 <a href="{{route('task.create')}}" wire:navigate>New Task</a>
@@ -32,7 +32,7 @@
             @endif
 
             <!-- Page Content -->
-            <main class="dark:bg-neutral-800 dark:text-white bg-white text-neutral-900">
+            <main class="dark:bg-neutral-800 bg-white">
                 {{ $slot }}
             </main>
         </div>

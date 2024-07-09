@@ -17,15 +17,19 @@ $save = function () {
 
     Category::create($this->all());
     
-    $this->redirect(route('welcome'), true);
+    $this->redirect(route('home'), true);
 };
 ?>
 
-<form wire:submit='save' enctype="multipart/form-data" class="flex flex-col">
-    <input type="text" wire:model='title' placeholder="Title..." />
-    @error('title') <x-input-error :messages="$message" class="mt-2" /> @enderror
-    <input type="file" wire:model='logo' />
-    @error('logo') <x-input-error :messages="$message" class="mt-2" /> @enderror
-
-    <button type="submit">Save</button>
-</form>
+<div class="text-center">
+    <x-h1>New Category</x-h1>
+    <form wire:submit='save' enctype="multipart/form-data" class="flex flex-col mt-14">
+        <x-input-text wire:model='title' placeholder="Title..."/>
+        @error('title') <x-input-error :messages="$message" class="mt-2" /> @enderror
+        
+        <x-input-file wire:model='logo' class="mt-12"/>
+        @error('logo') <x-input-error :messages="$message" class="mt-2" /> @enderror
+    
+        <button type="submit" class="py-2 bg-green-500 hover:bg-green-400 rounded-lg max-w-20 mt-16">Save</button>
+    </form>
+</div>
