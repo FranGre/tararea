@@ -18,8 +18,7 @@
         <div class="min-h-screen dark:bg-neutral-800 bg-white py-6 px-40">
             <nav class="mb-16 space-x-6">
                 <a href="{{route('home')}}" wire:navigate>Home</a>
-                <a href="{{route('category.create')}}" wire:navigate>New Category</a>
-                <a href="{{route('task.create')}}" wire:navigate>New Task</a>
+                <a href="{{route('categories')}}" wire:navigate>Category</a>
             </nav>
 
              <!-- Page Heading -->

@@ -17,7 +17,7 @@ $save = function () {
 
     Category::create($this->all());
     
-    $this->redirect(route('home'), true);
+    $this->redirect(route('categories'), true);
 };
 ?>
 

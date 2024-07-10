@@ -42,21 +42,23 @@ $remove = function ($id) {
     @else
         <ul>
             @foreach ($this->tasks as $task)
-                <li wire:key='{{ $task->id }}'
-                    class="mb-9 rounded-lg p-5 flex justify-between border items-center
-            border-slate-950 bg-gray-200
-            dark:border-neutral-500 dark:bg-neutral-600">
-                    <div>
-                        <small>{{ $task->category->title }}</small>
-                        <p>{{ $task->title }}</p>
-                    </div>
+                <a href="{{ route('task.edit', $task->id) }}" wire:navigate>
+                    <li wire:key='{{ $task->id }}'
+                        class="mb-9 rounded-lg p-5 flex justify-between border items-center cursor-pointer border-black
+            bg-gray-200 hover:bg-gray-300
+            dark:bg-neutral-600 dark:hover:bg-neutral-700">
+                        <div>
+                            <small>{{ $task->category->title }}</small>
+                            <p>{{ $task->title }}</p>
+                        </div>
 
-                    <div class="space-x-6">
-                        <x-primary-button
-                            wire:click='changeStatus({{ $task->id }})'>{{ $task->is_done ? 'Done' : 'Pending' }}</x-primary-button>
-                        <x-danger-button wire:click='remove({{ $task->id }})'>Remove</x-danger-button>
-                    </div>
-                </li>
+                        <div class="space-x-6">
+                            <x-primary-button
+                                wire:click='changeStatus({{ $task->id }})'>{{ $task->is_done ? 'Done' : 'Pending' }}</x-primary-button>
+                            <x-danger-button wire:click='remove({{ $task->id }})'>Remove</x-danger-button>
+                        </div>
+                    </li>
+                </a>
             @endforeach
         </ul>
     @endif
