@@ -20,7 +20,7 @@ state(['categories' => Category::where('user_id', Auth::user()->id)->get()]);
                 <div class="py-6 px-2 rounded-lg shadow border duration-100 border-black
                 bg-gray-200 hover:bg-gray-300
                 dark:bg-neutral-600 dark:hover:bg-neutral-700">
-                    <p>{{ $category->title }}
+                    <p>{{ $category->title }}</p>
                 </div>
             </a>
         @endforeach
