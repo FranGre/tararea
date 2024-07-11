@@ -29,7 +29,7 @@ $save = function () {
         @enderror
 
         <x-select wire:model='category_id'>
-            <option value="">Choose an option</option>
+            <option value="">Choose a category</option>
             @foreach ($this->categories as $category)
                 <option value="{{ $category->id }}">{{ $category->title }}</option>
             @endforeach
