@@ -10,6 +10,8 @@ Volt::route('register', 'pages.register')->name('register');
 
 Volt::route('home', 'home')->name('home');
 
+Route::view('profile', 'profile')->name('profile');
+
 Volt::route('categories', 'categories')->name('categories');
 Volt::route('new/category', 'create.categoryform')->name('category.create');
 Volt::route('category/{category_id}/edit', 'edit.categoryform')->name('category.edit');
