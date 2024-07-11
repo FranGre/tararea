@@ -33,13 +33,14 @@ $changeStatus = function ($id) {
                         class="mb-9 rounded-lg p-5 flex justify-between border items-center cursor-pointer border-black
             bg-gray-200 hover:bg-gray-300
             dark:bg-neutral-600 dark:hover:bg-neutral-700">
-                        <div>
+                        <div class="text-left">
                             <small>{{ $task->category->title }}</small>
-                            <p>{{ $task->title }}</p>
+                            <p class="font-medium">{{ $task->title }}</p>
                         </div>
 
-                        <x-primary-button
-                            wire:click='changeStatus({{ $task->id }})'>{{ $task->is_done ? 'Done' : 'Pending' }}</x-primary-button>
+                        <p class="{{ $task->is_done ? 'font-bold' : 'font-semibold' }}">
+                            {{ $task->is_done ? 'DONE ✅' : 'TODO 📝' }}
+                        </p>
                     </li>
                 </a>
             @endforeach
