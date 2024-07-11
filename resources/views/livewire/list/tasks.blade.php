@@ -20,20 +20,6 @@ $changeStatus = function ($id) {
     $this->tasks = $tasks;
 };
 
-$remove = function ($id) {
-    $backup = $this->tasks;
-
-    $task = Task::findOrFail($id);
-    $tasks = [];
-    foreach ($this->tasks as $item) {
-        if ($task->id !== $item->id) {
-            array_push($tasks, $item);
-        }
-    }
-    $this->tasks = $tasks;
-    $task->delete();
-};
-
 ?>
 
 <div>
@@ -52,11 +38,8 @@ $remove = function ($id) {
                             <p>{{ $task->title }}</p>
                         </div>
 
-                        <div class="space-x-6">
-                            <x-primary-button
-                                wire:click='changeStatus({{ $task->id }})'>{{ $task->is_done ? 'Done' : 'Pending' }}</x-primary-button>
-                            <x-danger-button wire:click='remove({{ $task->id }})'>Remove</x-danger-button>
-                        </div>
+                        <x-primary-button
+                            wire:click='changeStatus({{ $task->id }})'>{{ $task->is_done ? 'Done' : 'Pending' }}</x-primary-button>
                     </li>
                 </a>
             @endforeach

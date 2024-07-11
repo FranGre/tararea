@@ -30,6 +30,12 @@ $save = function () {
     $this->redirect(route('home'), true);
 };
 
+$remove = function () {
+    $this->task->delete();
+
+    $this->redirect(route('home'), true);
+};
+
 ?>
 
 <div class="text-center">
@@ -49,6 +55,9 @@ $save = function () {
             <x-input-error :messages="$message" class="mt-2" />
         @enderror
 
-        <button type="submit" class="py-2 bg-green-500 hover:bg-green-400 rounded-lg max-w-20 mt-16">Save</button>
+        <div class="flex justify-between mt-16">
+            <button type="submit" class="py-2 px-4 bg-green-500 hover:bg-green-400 rounded-lg">Save</button>
+            <x-danger-button type='button' wire:click='remove'>Remove</x-danger-button>
+        </div>
     </form>
 </div>

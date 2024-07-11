@@ -32,7 +32,7 @@ $remove = function () {
 
 <div class="text-center">
     <x-h1>Edit Category</x-h1>
-    
+
     <form wire:submit='save' enctype="multipart/form-data" class="flex flex-col mt-14">
         <x-input-text wire:model='title' placeholder="Title..." />
         @error('title')
@@ -46,8 +46,8 @@ $remove = function () {
 
         <div class="mt-16 flex justify-between">
             <button type="submit" class="px-4 py-2 rounded-lg bg-green-500 hover:bg-green-400">Save</button>
-        
-            <button type="button" wire:click='remove' class="px-4 py-2 rounded-lg bg-red-500 hover:bg-red-400">Remove</button>
+
+            <x-danger-button type='button' wire:click='remove'>Remove</x-danger-button>
         </div>
     </form>
 </div>
